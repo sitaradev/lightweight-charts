@@ -23,6 +23,7 @@ export interface BoxRendererData {
 	// title
 	width: number; // Canvas width?
 	height: number; // Canvas height?
+	text?:string;
 }
 
 export class BoxRenderer implements IPaneRenderer {
@@ -94,6 +95,11 @@ export class BoxRenderer implements IPaneRenderer {
 
 		ctx.fillStyle = this._hexToRgba(this._data.fillColor, this._data.fillOpacity);
 		ctx.fill();
+		
+		if(this._data.text){
+			ctx.fillStyle = this._hexToRgba(this._data.borderColor, this._data.fillOpacity);
+			ctx.fillText(this._data.text, corners[0].x, corners[0].y);
+		}
 
 		if (this._data.borderVisible) {
 			ctx.strokeStyle = this._data.borderColor;
