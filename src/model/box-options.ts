@@ -83,4 +83,10 @@ export interface BoxOptions {
 	 * @defaultValue `''`
 	 */
 	title: string;
+	/**
+	 * Custome text inside box.
+	 *
+	 * @defaultValue `''`
+	 */
+	text?: string;
 }
