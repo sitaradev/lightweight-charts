@@ -28,6 +28,7 @@ export class CustomBoxPaneView extends SeriesBoxPaneView {
 		data.borderStyle = boxOptions.borderStyle;
 		data.borderWidth = boxOptions.borderWidth;
 		data.borderVisible = boxOptions.borderVisible;
+		data.text = boxOptions.text;
 		data.corners = [];
 		data.visible = true;
 
