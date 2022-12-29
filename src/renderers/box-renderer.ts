@@ -43,12 +43,12 @@ export class BoxRenderer implements IPaneRenderer {
 		}
 
 		let corners: Point[] = [];
-		const height = Math.ceil(this._data.height * pixelRatio);
-		const width = Math.ceil(this._data.width * pixelRatio);
+		
 		
 		if (this._data.corners.length === 0) {
 			
 			const yLow = Math.round(this._data.yLow * pixelRatio) as Coordinate;
+			const height = Math.ceil(this._data.height * pixelRatio);
 
 			if (yLow > height) {
 				return;
@@ -62,6 +62,7 @@ export class BoxRenderer implements IPaneRenderer {
 
 			
 			const xLow = Math.round(this._data.xLow * pixelRatio) as Coordinate;
+			const width = Math.ceil(this._data.width * pixelRatio);
 
 			if (xLow > width) {
 				return;
@@ -103,14 +104,8 @@ export class BoxRenderer implements IPaneRenderer {
 			ctx.textAlign = "center";
 			let start , end;
 			
-			if(corners.length === 4){
-				start = (corners[2].x - corners[0].x) / 2;
-				end = (corners[2].y - corners[0].y) / 2;
-			}
-			else {
-				start = corners[0].x + (width / 2);
-				end = corners[0].y + (height / 2);
-			}
+			start = ((corners[2] || corners[1]).x - corners[0].x) / 2;
+			end = ((corners[2] || corners[1]).y - corners[0].y) / 2;
 			
 			ctx.fillText(this._data.text, start, end);
 		}
