@@ -107,6 +107,7 @@ export class BoxRenderer implements IPaneRenderer {
 			const y = corners[0].y; // ((corners[2] || corners[1]).y - corners[0].y) / 2;
 			
 			ctx.fillText(this._data.text, x, y);
+			console.log("corners : " , corners);
 		}
 
 		if (this._data.borderVisible) {
