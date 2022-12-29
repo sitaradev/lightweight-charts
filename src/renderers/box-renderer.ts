@@ -101,7 +101,7 @@ export class BoxRenderer implements IPaneRenderer {
 		
 		if(this._data.text){
 			ctx.fillStyle = this._hexToRgba(this._data.borderColor, this._data.fillOpacity);
-			ctx.textAlign = "center";
+			// ctx.textAlign = "center";
 			
 			const x = corners[0].x; // ((corners[2] || corners[1]).x - corners[0].x) / 2;
 			const y = corners[0].y; // ((corners[2] || corners[1]).y - corners[0].y) / 2;
